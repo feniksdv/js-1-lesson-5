@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1. Создать функцию, генерирующую шахматную доску. При этом можно использовать любые html-теги по своему желанию. 
+        Доска должна быть разлинована соответствующим образом, т.е. чередовать черные и белые ячейки. Строки должны нумероваться 
+        числами от 1 до 8, столбцы – латинскими буквами A, B, C, D, E, F, G, H. -->
+    <div id="one" class="conteiner"></div>
+
+    <script>
+
+        //строим таблицу
+        var table, th, tr, td, span, div, divLatters;
+        var letters = ["A", "B", "C", "D", "E", "F", "G", "H"];
+
+        //Функция для добавления букв
+        function letter(x)
+        {
+            div = document.getElementsByClassName("conteiner")[0]; //получаем масив div
+            divLatters = document.createElement("div"); //общий див для букв
+            divLatters.className = "conteiner-wrp"; //добавляем класс к тегу conteiner-wrp div
+            div.append(divLatters); //добавляем тег div на страницу
+
+            for(var i = 0; i < 8; i++)
+            {
+                a = document.createElement("a"); //создаем тег p
+                a.className = "conteiner-wrp-letters-"+x; //добавляем класс conteiner-span к тегу tr
+                divLatters.append(a); //добавляем тег span на страницу
+                a.insertAdjacentText('beforeend', letters[i]); //добавляем буквы на страницу
+            }
+        }
+
+        //подгружаем верхние буквы
+        letter("top");
+
+        table = document.createElement("table"); //создаем тег table
+        
+        for(var i = 8;i > 0;i--)
+        {
+            tr = document.createElement("tr"); //создаем тег tr
+            tr.className = "conteiner-tr"; //добавляем класс conteiner-tr к тегу tr
+            tr.innerText = i; //вписываем текст в тег tr
+            table.append(tr); //добавляем тег tr на страницу
+            span = document.createElement("span"); //создаем тег span
+            span.className = "conteiner-span"; //добавляем класс conteiner-span к тегу tr
+            
+            for(var j = 8;j > 0;j--)
+            {
+                td = document.createElement("td"); //создаем тег td
+                tr.append(td); //добавляем тег td на страницу
+                tr.append(span); //добавляем тег span на страницу
+                //красим квадраты
+                if((i+j) % 2 == 0)
+                {
+                    td.className  ="conteiner-white";
+                }
+                else
+                {
+                    td.className  ="conteiner-black";
+                }
+            }
+        }
+        //Рисуем доску
+        document.getElementsByClassName("conteiner")[0].append(table);
+       
+       //рисуем правые цифры
+        var list = document.querySelectorAll("span"); //получаем масив
+        for (var i = list.length, q = 0; i >= 1; i--, q++) {
+            list[q].insertAdjacentText('beforeEnd', i); //вот тут вот  list[q] я тупил 5 часов
+        }
+
+        //подгружаем нижние буквы
+        letter("down");
+
+    </script>
+</body>
+</html>
