@@ -5,7 +5,7 @@
 
 .conteiner {
     width: 800px;
-    margin-top: 18%;
+    margin-top: 10%;
 
     &-wrp {
         width: 273px;
@@ -34,17 +34,20 @@
     &-white {
         width: 30px;
         height: 30px;
-
+        text-align: center;
     }
 
     &-black {
         background-color: black;
+        color: white;
     }
 
     &-white {
         background-color: rgb(241, 241, 241);
+        color: black;
     }
 
-
-
+    &-top {
+        transform: rotateX(180deg) rotateY(180deg);
+    }
 }

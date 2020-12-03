@@ -5,7 +5,7 @@
 
 .conteiner {
   width: 800px;
-  margin-top: 18%;
+  margin-top: 10%;
 }
 
 .conteiner-wrp {
@@ -35,13 +35,21 @@
 .conteiner-black, .conteiner-white {
   width: 30px;
   height: 30px;
+  text-align: center;
 }
 
 .conteiner-black {
   background-color: black;
+  color: white;
 }
 
 .conteiner-white {
   background-color: #f1f1f1;
+  color: black;
+}
+
+.conteiner-top {
+  -webkit-transform: rotateX(180deg) rotateY(180deg);
+          transform: rotateX(180deg) rotateY(180deg);
 }
 /*# sourceMappingURL=style.css.map */
